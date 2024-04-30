@@ -138,27 +138,27 @@ if binary
         gluster_volumes.keys.join(',')
       end
     end
-    gluster_volumes.each_key do |volume|
-      Facter.add("gluster_volume_#{volume}_bricks".to_sym) do
-        setcode do
-          gluster_volumes[volume]['bricks'].join(',')
-        end
-      end
-    end
-    volume_options&.each do |vol, opts|
-      # Create flat facts for each volume
-      Facter.add("gluster_volume_#{vol}_options".to_sym) do
-        setcode do
-          opts.join(',')
-        end
-      end
-    end
-    volume_ports&.each do |vol, ports|
-      Facter.add("gluster_volume_#{vol}_ports".to_sym) do
-        setcode do
-          ports.join(',')
-        end
-      end
-    end
+    # gluster_volumes.each_key do |volume|
+    #   Facter.add("gluster_volume_#{volume}_bricks".to_sym) do
+    #     setcode do
+    #       gluster_volumes[volume]['bricks'].join(',')
+    #     end
+    #   end
+    # end
+    # volume_options&.each do |vol, opts|
+    #   # Create flat facts for each volume
+    #   Facter.add("gluster_volume_#{vol}_options".to_sym) do
+    #     setcode do
+    #       opts.join(',')
+    #     end
+    #   end
+    # end
+    # volume_ports&.each do |vol, ports|
+    #   Facter.add("gluster_volume_#{vol}_ports".to_sym) do
+    #     setcode do
+    #       ports.join(',')
+    #     end
+    #   end
+    # end
   end
 end
